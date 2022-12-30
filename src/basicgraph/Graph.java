@@ -121,8 +121,13 @@ public abstract class Graph {
 	 * @return The degree sequence of this graph.
 	 */
 	public List<Integer> degreeSequence() {
-		// XXX: Implement in part 1 of week 1
-		return null;
+		List <Integer> degreeSequenceList = new ArrayList <Integer>();
+		for (int i = 0; i < getNumVertices(); i++) {
+			degreeSequenceList.add(getNeighbors(i).size()+getInNeighbors(i).size());
+		}
+		
+		Collections.sort(degreeSequenceList, Collections.reverseOrder());
+		return degreeSequenceList;
 	}
 	
 	/**
